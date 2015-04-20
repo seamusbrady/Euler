@@ -53,17 +53,21 @@
     <Compile Include="Problem008.cs" />
     <Compile Include="Problem023.cs" />
     <Compile Include="Problem021.cs" />
+    <Compile Include="Problem026.cs" />
     <Compile Include="Problem027.cs" />
     <Compile Include="Problem033.cs" />
     <Compile Include="Problem031.cs" />
+    <Compile Include="Problem039.cs" />
     <Compile Include="Problem040.cs" />
     <Compile Include="Problem042.cs" />
     <Compile Include="Problem043.cs" />
+    <Compile Include="Problem045.cs" />
     <Compile Include="Problem050.cs" />
     <Compile Include="Problem052.cs" />
     <Compile Include="Problem058.cs" />
     <Compile Include="Problem056.cs" />
     <Compile Include="Problem079.cs" />
+    <Compile Include="Problem081.cs" />
     <Compile Include="Problem092.cs" />
     <Compile Include="Problem099.cs" />
     <Compile Include="Problem100.cs" />
@@ -108,6 +112,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="data\p079_keylog.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\p081_matrix.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="data\p099_base_exp.txt">

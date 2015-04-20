@@ -9,7 +9,7 @@ static class Program
     {
         var stopWatch = new Stopwatch();
         stopWatch.Start();
-        var result = new Problem043().Run();
+        var result = new Problem045().Run();
         stopWatch.Stop();
 
         Console.WriteLine("solution = {0}\nTime: {1}", result, stopWatch.ElapsedMilliseconds);
