@@ -7,6 +7,7 @@ namespace Euler
 {
     internal class Problem043
     {
+        private long _sumDividiblePanDigitals;
         public long Run()
         {
             return FastSolution();
@@ -14,39 +15,47 @@ namespace Euler
 
         public long MySolution()
         {
+            var pan = new PanDigital {TestFunction = Test};
 
-            int[] divisors = { 1, 2, 3, 5, 7, 11, 13, 17 };
-
-            const int len = 9;
-
-            long sumDividiblePanDigitals = 0;
-            var pandigitals =  PanDigital.GetAll();
-
-            foreach (var pandigital in pandigitals)
-            {
-                bool hasDivisors = true;
-                for (int i = len-2; i > 0; i--)
-                {
-                    int power = (int)Math.Pow(10, len - 3 - i + 1);
-
-                    var part = pandigital / power;
-                    var section = part % 1000;
-
-                    if (section%divisors[i] == 0) continue;
-                    hasDivisors = false;
-                    break;
-                }
-
-                if (!hasDivisors) continue;
-
-                sumDividiblePanDigitals += pandigital;
-                Console.WriteLine(pandigital);
-            }
-
-            return sumDividiblePanDigitals;
+            pan.GetPermutations("0123456789".ToCharArray());
+            return _sumDividiblePanDigitals;
         }
 
+        private bool Test(char[] pandigital)
+        {
+            const int len = 9;
+            int[] divisors = { 1, 2, 3, 5, 7, 11, 13, 17 };
+            var pandigitalNumber = ToNumber(pandigital);
+            for (int i = len - 2; i > 0; i--)
+            {
+                int power = (int)Math.Pow(10, len - 3 - i + 1);
 
+                var part = pandigitalNumber / power;
+                var section = part % 1000;
+
+                if (section % divisors[i] == 0) continue;
+                return false;
+            }
+            _sumDividiblePanDigitals += pandigitalNumber;
+            return true;
+        }
+
+        private static long ToNumber(char[] digits)
+        {
+            long number = 0;
+            foreach (var d in digits)
+            {
+                number += ToInt(d);
+                number *= 10;
+            }
+            number /= 10;
+            return number;
+        }
+
+        static int ToInt(char d)
+        {
+            return d - '0';
+        }
 
         public static long FastSolution()
         {

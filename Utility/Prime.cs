@@ -34,7 +34,7 @@ namespace Euler.Utility
             return primes;
         }
 
-        public static bool IsPrime(int n)   
+        public static bool IsPrime(long n)
         {
             if (n == 1) return false;
             if (n < 4) return true;
@@ -42,8 +42,8 @@ namespace Euler.Utility
             if (n < 9) return true;
             if (n % 3 == 0) return false;
 
-            var r = Math.Floor(Math.Sqrt(n));
-            var f = 5;
+            double r = Math.Floor(Math.Sqrt(n));
+            long f = 5;
             do
             {
                 if (n % f == 0) return false;
@@ -52,6 +52,7 @@ namespace Euler.Utility
             } while (f <= r);
 
             return true;
+
         }
 
     }
